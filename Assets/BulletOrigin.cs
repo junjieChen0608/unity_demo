@@ -6,20 +6,21 @@ public class BulletOrigin : MonoBehaviour
 {
 	public Rigidbody2D rb;
 	public Camera cam;
-	private GameObject playerRef;
+	public GameObject playerRef;
 
 	Vector2 mousePos;
 	
     // Start is called before the first frame update
     void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        transform.position = new Vector3(playerRef.transform.position.x,
+								 		 playerRef.transform.position.y+1.0f,
+								 		 playerRef.transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = playerRef.transform.position;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -27,7 +28,6 @@ public class BulletOrigin : MonoBehaviour
     {
 		Vector2 lookDir = mousePos - rb.position;
 		float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-		// // Debug.Log("angle " + angle);
 		rb.rotation = angle;
     }
 }
