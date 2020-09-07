@@ -23,10 +23,10 @@ public class HeroKnight : MonoBehaviour {
     private float               m_timeSinceAttack = 0.0f;
     private float               m_delayToIdle = 0.0f;
 
-
     // Use this for initialization
     void Start ()
     {
+        gameObject.tag = "Player";
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_HeroKnight>();
@@ -159,6 +159,7 @@ public class HeroKnight : MonoBehaviour {
                 if(m_delayToIdle < 0)
                     m_animator.SetInteger("AnimState", 0);
         }
+
     }
 
     // Animation Events
