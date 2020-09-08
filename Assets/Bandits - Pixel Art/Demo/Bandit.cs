@@ -96,4 +96,16 @@ public class Bandit : MonoBehaviour {
         // else
         //     m_animator.SetInteger("AnimState", 0);
     }
+
+    public void Die()
+    {
+        if(!m_isDead)
+        {
+            Debug.Log("bandit dead");
+            m_animator.SetTrigger("Death");
+            m_isDead = true;
+        } else {
+            Debug.Log("bandit already dead");
+        }
+    }
 }

@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2875935112892295552}
   cam: {fileID: 0}
+  playerRef: {fileID: 0}
 --- !u!50 &2875935112892295552
 Rigidbody2D:
   serializedVersion: 4
@@ -114,4 +115,4 @@ MonoBehaviour:
   firePoint: {fileID: 2875935112497328247}
   bulletPrefab: {fileID: 5028769072523949549, guid: 6a0ce17b897984eeebe940b752cff1ea,
     type: 3}
-  bulletForce: 15
+  bulletForce: 20
