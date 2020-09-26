@@ -583,7 +583,9 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 1
+    UNet: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -596,10 +598,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: a7e24339-8ff6-490b-b1e8-0085adb3f29e
+  cloudProjectId: 6eed715d-a35e-4d42-91e8-c9e7b4a9eda7
   framebufferDepthMemorylessMode: 0
-  projectName: demo
-  organizationId: wiiso853
+  projectName: unity_demo
+  organizationId: xiuyuang_unity
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
