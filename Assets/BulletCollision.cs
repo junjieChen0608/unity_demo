@@ -17,7 +17,8 @@ public class BulletCollision : MonoBehaviour
  	{
  		--bounceCount;
 		Debug.Log("bullet collision enter, bounce left " + bounceCount);
-		// bullet bounces up to 15 times
+		
+		//bullet bounces up to 15 times
 		if (bounceCount == 0 && gameObject != null)
 		{
 			Destroy(gameObject);
