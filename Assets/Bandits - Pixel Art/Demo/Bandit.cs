@@ -39,4 +39,9 @@ public class Bandit : MonoBehaviour {
             Debug.Log("bandit already dead");
         }
     }
+
+    public bool getStatus()
+    {
+        return m_isDead;
+    }
 }
