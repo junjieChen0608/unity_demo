@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 1574078978}
   - component: {fileID: 1574078977}
   - component: {fileID: 1574078980}
+  - component: {fileID: 1574078981}
   m_Layer: 0
   m_Name: obstacle 1
   m_TagString: Untagged
@@ -711,6 +712,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1574078981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574078976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add75faa2cd794a8391f17b46a5b58a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1598539786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee05c10c6c51d41c5b8236bd98f57e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Win
 --- !u!60 &6211404466486852142
 PolygonCollider2D:
   m_ObjectHideFlags: 0
