@@ -21,7 +21,9 @@ public class Shot : MonoBehaviour
     void Shoot()
     {
     	GameObject Light = Instantiate(LightPrefab, firePoint.position, firePoint.rotation);
-    	Rigidbody2D rb = Light.GetComponent<Rigidbody2D>();
+        Debug.Log(firePoint.position);
+        Debug.Log(firePoint.rotation);
+        Rigidbody2D rb = Light.GetComponent<Rigidbody2D>();
 		rb.AddForce(firePoint.up * LightForce, ForceMode2D.Impulse);
     }
 }

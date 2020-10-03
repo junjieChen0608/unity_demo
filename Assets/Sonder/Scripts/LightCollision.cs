@@ -34,5 +34,12 @@ public class LightCollision : MonoBehaviour
  			star.Live();
 			Destroy(gameObject);
  		}
+        MoonShoot moon = collider.GetComponent<MoonShoot>();
+
+        if (moon != null)
+        {
+            moon.shoot();
+            Destroy(gameObject);
+        }
  	}
 }
