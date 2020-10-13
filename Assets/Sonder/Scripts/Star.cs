@@ -10,14 +10,13 @@ public class Star : MonoBehaviour
     private bool                m_isAlive = false;
     private Animator            transitionAnim;
     public string               sceneName;
-    // public bool                 isLocked = true;
+    public bool                 isLocked = true;
 
     // Use this for initialization
     public void Start () {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         transitionAnim = GetComponent<Animator>();
-        //sceneName = "Win";
  
     }
 
@@ -27,7 +26,7 @@ public class Star : MonoBehaviour
         {
             Debug.Log("star is dying");
             m_animator.SetTrigger("Live");
-            // isLocked = false;
+            isLocked = false;
             m_isAlive = true;
             StartCoroutine(Transition(sceneName));
         } else {
@@ -35,7 +34,6 @@ public class Star : MonoBehaviour
         }
     }
     IEnumerator Transition(string sceneName) {
-        // transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(7);
         SceneManager.LoadScene(sceneName);
     }

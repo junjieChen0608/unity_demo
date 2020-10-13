@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Music
   - LevelIndex
+  - Star
   layers:
   - Default
   - TransparentFX

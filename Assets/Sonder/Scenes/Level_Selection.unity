@@ -201,13 +201,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1024723486}
+      - m_Target: {fileID: 18630448551606305}
         m_MethodName: LoadScene
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: Level_3
           m_BoolArgument: 0
@@ -292,13 +292,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1024723486}
+      - m_Target: {fileID: 18630448551606305}
         m_MethodName: LoadScene
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: Level_2
           m_BoolArgument: 0
@@ -749,18 +749,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1024723486 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 18630449005376001, guid: d83b39d61865e4f71a93991305d4168f,
-    type: 3}
-  m_PrefabInstance: {fileID: 18630448551606303}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71c49eeed8f042709c87b9ac422e73b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1353723129
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,13 +829,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1024723486}
+      - m_Target: {fileID: 18630448551606305}
         m_MethodName: LoadScene
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Level_1
           m_BoolArgument: 0
@@ -1261,5 +1249,24 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 37.22516
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 18630449005376001, guid: d83b39d61865e4f71a93991305d4168f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d83b39d61865e4f71a93991305d4168f, type: 3}
+--- !u!1 &18630448551606304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 18630449005376006, guid: d83b39d61865e4f71a93991305d4168f,
+    type: 3}
+  m_PrefabInstance: {fileID: 18630448551606303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &18630448551606305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18630448551606304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92280d10a5814d0b8cd6d94e01fbd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

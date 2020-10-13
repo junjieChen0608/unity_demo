@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 0
+  lockState: 
+  winRef: {fileID: 353118420}
 --- !u!4 &131381655
 Transform:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ GameObject:
   - component: {fileID: 6211404466486852141}
   m_Layer: 0
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2123,6 +2125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Win
+  isLocked: 1
 --- !u!60 &6211404466486852142
 PolygonCollider2D:
   m_ObjectHideFlags: 0
