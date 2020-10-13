@@ -33,7 +33,7 @@ public class Star : MonoBehaviour
         }
     }
     IEnumerator Transition(string sceneName) {
-        transitionAnim.SetTrigger("end");
+        // transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(7);
         SceneManager.LoadScene(sceneName);
     }
