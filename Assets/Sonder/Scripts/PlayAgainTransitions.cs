@@ -9,10 +9,9 @@ public class PlayAgainTransitions : MonoBehaviour
     private Animator transitionAnim;
     private int thisLevelIndex;
 
-    void Update()
+    void Start()
     {
         transitionAnim = GetComponent<Animator>();
-        // thisLevelIndex = GameObject.Find("Global_Vars").GetComponent<Manager>().sceneIndex;
         thisLevelIndex =  PersistentManagerScript.Instance.LevelIdx;
         Debug.Log("Play again: " + thisLevelIndex);
     }
@@ -23,7 +22,7 @@ public class PlayAgainTransitions : MonoBehaviour
     IEnumerator Transition() {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);
-         Debug.Log("Almost load the level: " + thisLevelIndex);
+         Debug.Log("[Again] Almost load the level: " + thisLevelIndex);
         SceneManager.LoadScene(thisLevelIndex);
     }
 }

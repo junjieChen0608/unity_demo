@@ -22,7 +22,7 @@ public class LevelTransitions : MonoBehaviour
     IEnumerator Transition() {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);
-         Debug.Log("Almost load the level: " + nextLevelIndex);
+         Debug.Log("[LevelTransitions]Almost load the level: " + nextLevelIndex);
         SceneManager.LoadScene(nextLevelIndex);
     }
 

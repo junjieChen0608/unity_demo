@@ -7,21 +7,17 @@ public class LevelSeletion : MonoBehaviour
 {
 
     private Animator transitionAnim;
-    // private int previousLevelIndex;
-    // private bool[] lockingStates;    
-    
 
     void Start()
     {
+        Debug.Log("[LevelSelection_Test0:] Max unlocked index is " + PersistentManagerScript.Instance.maxUnlockedIdx);
         transitionAnim = GetComponent<Animator>();       
-        // lockingStates = GameObject.Find("Global_Vars").GetComponent<Manager>().lockState;
     }
 
     public void LoadScene(int currentSceneIndex) {
-        // if (!lockingStates[currentSceneIndex - 1]) {
-        // StartCoroutine(Transition(currentSceneIndex));
-        // }
-
+        Debug.Log("[LevelSelection_Test1:] Max unlocked index is " + PersistentManagerScript.Instance.maxUnlockedIdx);
+        Debug.Log("You click on: " + currentSceneIndex);
+        Debug.Log("Max unlocked index is " + PersistentManagerScript.Instance.maxUnlockedIdx);
         if (currentSceneIndex <= PersistentManagerScript.Instance.maxUnlockedIdx) 
         {
             StartCoroutine(Transition(currentSceneIndex));
@@ -30,7 +26,7 @@ public class LevelSeletion : MonoBehaviour
     IEnumerator Transition(int currentSceneIndex) {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);
-         Debug.Log("Almost load Level_: " + currentSceneIndex);
+         Debug.Log("[LevelSelection] Almost load Level_: " + currentSceneIndex);
         SceneManager.LoadScene(currentSceneIndex);
     }
 
