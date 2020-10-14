@@ -12,7 +12,8 @@ public class PlayAgainTransitions : MonoBehaviour
     void Update()
     {
         transitionAnim = GetComponent<Animator>();
-        thisLevelIndex = GameObject.Find("Global_Vars").GetComponent<Manager>().sceneIndex;
+        // thisLevelIndex = GameObject.Find("Global_Vars").GetComponent<Manager>().sceneIndex;
+        thisLevelIndex =  PersistentManagerScript.Instance.LevelIdx;
         Debug.Log("Play again: " + thisLevelIndex);
     }
 

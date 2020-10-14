@@ -13,7 +13,7 @@ public class LevelTransitions : MonoBehaviour
     void Start()
     {
         transitionAnim = GetComponent<Animator>();
-        nextLevelIndex = GameObject.Find("Global_Vars").GetComponent<Manager>().sceneIndex + 1;
+        nextLevelIndex = PersistentManagerScript.Instance.LevelIdx + 1;
     }
 
     public void LoadScene() {
