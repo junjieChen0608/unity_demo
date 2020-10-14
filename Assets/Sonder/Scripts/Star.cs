@@ -10,7 +10,8 @@ public class Star : MonoBehaviour
     private bool                m_isAlive = false;
     private Animator            transitionAnim;
     public string               sceneName;
-    public bool                 isLocked = true;
+    // public bool                 isLocked = true;
+    public int                  maxUnlocked;
 
     // Use this for initialization
     public void Start () {
@@ -26,7 +27,11 @@ public class Star : MonoBehaviour
         {
             Debug.Log("star is dying");
             m_animator.SetTrigger("Live");
-            isLocked = false;
+            // isLocked = false;
+            if (PersistentManagerScript.Instance.LevelIdx > PersistentManagerScript.Instance.maxUnlockedIdx)
+            {
+                PersistentManagerScript.Instance.maxUnlockedIdx = PersistentManagerScript.Instance.LevelIdx + 1;
+            }         
             m_isAlive = true;
             StartCoroutine(Transition(sceneName));
         } else {
