@@ -32,7 +32,7 @@ public class TestEndAndStart : MonoBehaviour
         AnalyticsResult endResult = Analytics.CustomEvent("Test Star Dies");
         Debug.Log("Analytic end results: " + endResult + "\n" + Time.timeSinceLevelLoad);
         AnalyticsResult shootResult = Analytics.CustomEvent(
-            "Shoot for Test",
+            "LevelComplete",
             new Dictionary<string, object> {
                 {scene.name, countOfShoot}
             });
