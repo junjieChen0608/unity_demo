@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class TestEndAndStart : MonoBehaviour
 {
     private int countOfShoot = 0;
+    Scene scene;
     // Start is called before the first frame update
     void Start()
     {
-        Scene scene = SceneManager.GetActiveScene();
+        scene = SceneManager.GetActiveScene();
         AnalyticsResult result = Analytics.CustomEvent("Test level starts");
         Debug.Log("We are at " + scene.name);
         Debug.Log("Analytic start results: " + result);
@@ -29,11 +30,11 @@ public class TestEndAndStart : MonoBehaviour
     void OnDisable()
     {
         AnalyticsResult endResult = Analytics.CustomEvent("Test Star Dies");
-        Debug.Log("Analytic end results: " + endResult);
+        Debug.Log("Analytic end results: " + endResult + "\n" + Time.timeSinceLevelLoad);
         AnalyticsResult shootResult = Analytics.CustomEvent(
             "Shoot for Test",
             new Dictionary<string, object> {
-                    { "testLevel", countOfShoot }
+                {scene.name, countOfShoot}
             });
         Debug.Log("Analytic shoot results: " + shootResult);
     }
