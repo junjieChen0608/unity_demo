@@ -28,6 +28,7 @@ public class PersistentManagerScript : MonoBehaviour
             bestLevelShots = new int[10];
             levelStarCnt = new int[10];
             maxUnlockedIdx = 1;
+            LevelIdx = 1;
             Debug.Log("This is initialized");
             DontDestroyOnLoad(gameObject);
         }
