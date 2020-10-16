@@ -10,14 +10,15 @@ public class Star : MonoBehaviour
     private bool                m_isAlive = false;
     private Animator            transitionAnim;
     public string               sceneName;
-    // public bool                 isLocked = true;
     public int                  maxUnlocked;
+    private int                 currLevelIdx;
 
     // Use this for initialization
     public void Start () {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         transitionAnim = GetComponent<Animator>();
+        currLevelIdx = PersistentManagerScript.Instance.LevelIdx;
  
     }
 
@@ -27,11 +28,19 @@ public class Star : MonoBehaviour
         {
             Debug.Log("star is dying");
             m_animator.SetTrigger("Live");
-            // isLocked = false;
-            if (PersistentManagerScript.Instance.LevelIdx > PersistentManagerScript.Instance.maxUnlockedIdx)
+            // Update the highest unlocked level index
+            if (currLevelIdx >= PersistentManagerScript.Instance.maxUnlockedIdx)
             {
-                PersistentManagerScript.Instance.maxUnlockedIdx = PersistentManagerScript.Instance.LevelIdx + 1;
-            }         
+                PersistentManagerScript.Instance.maxUnlockedIdx = currLevelIdx + 1;
+                Debug.Log("Now the max unlocked index is: " + PersistentManagerScript.Instance.maxUnlockedIdx);
+            }     
+            // Update the best level shots record
+            if ((PersistentManagerScript.Instance.bestLevelShots[currLevelIdx] == 0) || (PersistentManagerScript.Instance.LevelShots[currLevelIdx] < PersistentManagerScript.Instance.bestLevelShots[currLevelIdx])) {
+                PersistentManagerScript.Instance.bestLevelShots[currLevelIdx] = PersistentManagerScript.Instance.LevelShots[currLevelIdx];
+            }
+            Debug.Log("This level shots: " + PersistentManagerScript.Instance.LevelShots[currLevelIdx]);
+            Debug.Log("Best shots for this level: " + PersistentManagerScript.Instance.bestLevelShots[currLevelIdx]);
+
             m_isAlive = true;
             StartCoroutine(Transition(sceneName));
         } else {
