@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightCollision : MonoBehaviour
 {
     private int bounceCount = 15;
+	private string TAG = "[LightCollision] ";
 
 	void Start()
 	{
@@ -16,7 +17,7 @@ public class LightCollision : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
  	{
  		--bounceCount;
-		Debug.Log("light collision enter, bounce left " + bounceCount);
+		//Debug.Log(TAG + "light collision enter, bounce left " + bounceCount);
 		// bullet bounces up to 15 times
 		if (bounceCount == 0 && gameObject != null)
 		{
@@ -27,7 +28,7 @@ public class LightCollision : MonoBehaviour
  	// called when hit star
  	void OnTriggerEnter2D(Collider2D collider)
  	{
- 		Debug.Log("light trigger enter");
+ 		Debug.Log(TAG + "light trigger enter");
  		Star star = collider.GetComponent<Star>();
  		if (star != null)
  		{
