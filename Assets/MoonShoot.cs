@@ -7,6 +7,7 @@ public class MoonShoot : MonoBehaviour
 {
     private Animator m_animator;
     private bool m_shoot = false;
+    private bool m_isStill = false;
     private string sceneName;
     public Transform firePoint;
     public GameObject LightPrefab;
@@ -29,6 +30,19 @@ public class MoonShoot : MonoBehaviour
             Debug.Log("Never enter move mode");
         }
 
+    }
+
+    public void Still()
+    {
+        if (!m_isStill)
+        {
+            m_animator.SetTrigger("Still");
+            m_isStill = true;
+        }
+        else
+        {
+            Debug.Log("Moon is still.");
+        }
     }
 
     public void shoot()
