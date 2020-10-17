@@ -5,19 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelSeletion : MonoBehaviour
 {
-
     private Animator transitionAnim;
+    private string TAG = "[LevelSeletion] ";
 
     void Start()
     {
-        Debug.Log("[LevelSelection_Test0:] Max unlocked index is " + PersistentManagerScript.Instance.maxUnlockedIdx);
         transitionAnim = GetComponent<Animator>();       
     }
 
     public void LoadScene(int currentSceneIndex) {
-        Debug.Log("[LevelSelection_Test1:] Max unlocked index is " + PersistentManagerScript.Instance.maxUnlockedIdx);
-        Debug.Log("You click on: " + currentSceneIndex);
-        Debug.Log("Max unlocked index is " + PersistentManagerScript.Instance.maxUnlockedIdx);
+        Debug.Log(TAG + "You click on: " + currentSceneIndex);
+        Debug.Log(TAG + "Max unlocked index is " + PersistentManagerScript.Instance.maxUnlockedIdx);
         if (currentSceneIndex <= PersistentManagerScript.Instance.maxUnlockedIdx) 
         {
             StartCoroutine(Transition(currentSceneIndex));
@@ -26,9 +24,7 @@ public class LevelSeletion : MonoBehaviour
     IEnumerator Transition(int currentSceneIndex) {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);
-         Debug.Log("[LevelSelection] Almost load Level_: " + currentSceneIndex);
+        Debug.Log(TAG + "Is Loading Level_" + currentSceneIndex);
         SceneManager.LoadScene(currentSceneIndex);
     }
-
-
 }

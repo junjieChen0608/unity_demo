@@ -411,8 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32927ea9be8c45dc92370122d1c37ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 0
-  lockState: 
 --- !u!4 &1216041168
 Transform:
   m_ObjectHideFlags: 0
@@ -1071,8 +1069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee05c10c6c51d41c5b8236bd98f57e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Win
-  isLocked: 1
 --- !u!60 &2016961272
 PolygonCollider2D:
   m_ObjectHideFlags: 0
