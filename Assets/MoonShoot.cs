@@ -34,6 +34,7 @@ public class MoonShoot : MonoBehaviour
     public void shoot()
     {
         GameObject Light = Instantiate(LightPrefab, firePoint.position, firePoint.rotation);
-
+        Rigidbody2D rb = Light.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * LightForce, ForceMode2D.Impulse);
     }
 }

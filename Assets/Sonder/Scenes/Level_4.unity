@@ -1170,6 +1170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792e28e7d26f747d3ba3f0189d768c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  LightPrefab: {fileID: 0}
+  LightForce: 0
 --- !u!60 &1944802225
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1180,7 +1183,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1458,7 +1461,6 @@ GameObject:
   - component: {fileID: 2016961273}
   - component: {fileID: 2016961272}
   - component: {fileID: 2016961271}
-  - component: {fileID: 2016961277}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -1659,18 +1661,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.132}
---- !u!114 &2016961277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016961270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 431e893429e2e4e988bbc16e5b1324f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2483616428028295428
 GameObject:
   m_ObjectHideFlags: 0
