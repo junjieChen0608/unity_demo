@@ -7,7 +7,7 @@ public class ShowThirdStar : MonoBehaviour
     private Animator m_animator;
     private int currLevelIdx;
    
-    void Start()
+    void Awake()
     {
         m_animator = GetComponent<Animator>();
         currLevelIdx = PersistentManagerScript.Instance.LevelIdx;
