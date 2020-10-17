@@ -35,32 +35,32 @@ public class Manager : MonoBehaviour
     {
         Debug.Log(TAG + scene.name + " is completed");
 
-        // record total shots of this level to analytics
-        AnalyticsResult totalShots = Analytics.CustomEvent(
-            "TotalShots",
-            new Dictionary<string, object> {
-                {scene.name, countOfShot}
-            }
-        );
+        if (countOfShot > 0)
+        {
+            // record total shots of this level to analytics
+            AnalyticsResult totalShots = Analytics.CustomEvent(
+                "TotalShots",
+                new Dictionary<string, object> {
+                    {scene.name, countOfShot}
+                }
+            );
 
-        // record total time used in this level to analytics
-        AnalyticsResult totalTime = Analytics.CustomEvent(
-            "TotalTime",
-            new Dictionary<string, object> {
-                {scene.name, elapsedTime}
-            }
-        );
+            // record total time used in this level to analytics
+            AnalyticsResult totalTime = Analytics.CustomEvent(
+                "TotalTime",
+                new Dictionary<string, object> {
+                    {scene.name, elapsedTime}
+                }
+            );
 
-        // record completed level for funnel analyzer
-        AnalyticsResult levelComplete = Analytics.CustomEvent(
-            "LevelCompleted",
-            new Dictionary<string, object> {
-                {"level", scene.name}
-            }
-        );
-        Debug.Log(TAG + "total shots " + totalShots);
-        Debug.Log(TAG + "total time " + totalTime);
-        Debug.Log(TAG + "level complete " + levelComplete);
+            // record completed level for funnel analyzer
+            AnalyticsResult levelComplete = Analytics.CustomEvent(
+                "LevelCompleted",
+                new Dictionary<string, object> {
+                    {"level", scene.name}
+                }
+            );
+        }
 
         if (PersistentManagerScript.Instance.starIsAlive)
         {
@@ -101,6 +101,7 @@ public class Manager : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
+            ++countOfShot;
         }
     }
 
