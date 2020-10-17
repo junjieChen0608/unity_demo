@@ -30,29 +30,4 @@ public class LightOrigin : MonoBehaviour
 		float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
 		rb.rotation = angle;
     }
-    // public GameObject light;
-    // public Transform lightPoint;
-    // public float timeBetweenShots;
-
-    // private float shotTime;
-    
-
-
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-    //     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-    //     Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-    //     transform.rotation = rotation;
-
-    //     if (Input.GetMouseButton(0))
-    //     {
-    //         if (Time.time >= shotTime)
-    //         {
-    //             Instantiate(light, lightPoint.position, transform.rotation);
-    //             shotTime = Time.time + timeBetweenShots;
-    //         }
-    //     }
-    // }
 }
