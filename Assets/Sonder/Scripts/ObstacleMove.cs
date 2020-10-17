@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ObstacleMove : MonoBehaviour
 {
-    private Animator            m_animator;
-    private bool                m_move = false;
-    private string              sceneName;
+    private Animator m_animator;
+    private bool m_move = false;
+    private string sceneName;
+    private string TAG = "[ObstacleMove] ";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,7 @@ public class ObstacleMove : MonoBehaviour
             m_move = true;
 
         } else {
-            Debug.Log("Never enter move mode");
+           // Debug.Log(TAG + "Never enter move mode");
         }
         
     }

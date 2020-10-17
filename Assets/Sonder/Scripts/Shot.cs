@@ -8,21 +8,11 @@ public class Shot : MonoBehaviour
     public GameObject LightPrefab;
     public float LightForce;
 
-    private int LevelIdx;
-
-    void Start()
-    {
-        LevelIdx = PersistentManagerScript.Instance.LevelIdx;
-        PersistentManagerScript.Instance.LevelShots[LevelIdx] = 0;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
         	Shoot();
-            PersistentManagerScript.Instance.LevelShots[LevelIdx]++;        
         }
     }
 

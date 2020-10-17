@@ -9,6 +9,7 @@ public class Manager : MonoBehaviour
 
     private int sceneIndexTemp;
     private int countOfShot;
+    private int currLevelIdx;
     private float elapsedTime;
     private string TAG = "[Manager] ";
     private Scene scene;
@@ -19,23 +20,14 @@ public class Manager : MonoBehaviour
         sceneIndexTemp = scene.buildIndex;
         countOfShot = 0;
         elapsedTime = 0.0f;
-
-        if (sceneIndexTemp >=1 && sceneIndexTemp <= 5)
-        {
-            PersistentManagerScript.Instance.LevelIdx = sceneIndexTemp;
-            // Debug.Log(TAG + "The hightest unlocked level is: Level_" + PersistentManagerScript.Instance.maxUnlockedIdx);
-            Debug.Log(TAG + "This is Level_" + sceneIndexTemp);
-        }
+        PersistentManagerScript.Instance.starIsAlive = false;
+        currLevelIdx = PersistentManagerScript.Instance.LevelIdx;
+        UpdateLevelIndex();
     }
 
-    // count number of shots and elapsed time in seconds
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            ++countOfShot;
-            Debug.Log(TAG + "shot " + countOfShot + " times");
-        }
+        CountLevelShots();
         elapsedTime += Time.deltaTime;
     }
 
@@ -66,6 +58,57 @@ public class Manager : MonoBehaviour
                 {"level", scene.name}
             }
         );
+        Debug.Log(TAG + "total shots " + totalShots);
+        Debug.Log(TAG + "total time " + totalTime);
+        Debug.Log(TAG + "level complete " + levelComplete);
+
+        if (PersistentManagerScript.Instance.starIsAlive)
+        {
+            // CountLevelTotalShots();
+            UpdateBestShots();
+            Debug.Log(TAG + "Total shots for this play: " + PersistentManagerScript.Instance.LevelShots[currLevelIdx]);
+            PersistentManagerScript.Instance.LevelShots[currLevelIdx] = 0; 
+            UpdateMaxUnlocked();
+        }
+    }
+
+    // Update global level index
+    // If current is a level, update it; else, keep the previous index
+    void UpdateLevelIndex()
+    {
+        if (sceneIndexTemp >=1 && sceneIndexTemp <= 5)
+        {
+            PersistentManagerScript.Instance.LevelIdx = sceneIndexTemp;
+            
+            Debug.Log(TAG + "The hightest unlocked level is: Level_" + PersistentManagerScript.Instance.maxUnlockedIdx);
+            Debug.Log(TAG + "This is Level_" + sceneIndexTemp);
+        }
+    }
+
+    // Update the highest unlocked level index
+    void UpdateMaxUnlocked()
+    {
+        if (currLevelIdx >= PersistentManagerScript.Instance.maxUnlockedIdx)
+        {
+            PersistentManagerScript.Instance.maxUnlockedIdx = currLevelIdx + 1;
+            
+            Debug.Log(TAG + "Now the max unlocked index is: " + PersistentManagerScript.Instance.maxUnlockedIdx);
+        } 
+    }
+
+    void CountLevelShots()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
+        }
+    }
+
+    // Update the best shots for each level
+    void UpdateBestShots()
+    {
+        PersistentManagerScript.Instance.bestLevelShots[currLevelIdx] = Mathf.Min(PersistentManagerScript.Instance.bestLevelShots[currLevelIdx], PersistentManagerScript.Instance.LevelShots[currLevelIdx]);
+        
+        Debug.Log(TAG + "Best shots for this level: " + PersistentManagerScript.Instance.bestLevelShots[currLevelIdx]); 
     }
 }
- 

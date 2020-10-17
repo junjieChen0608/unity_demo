@@ -8,12 +8,13 @@ public class PlayAgainTransitions : MonoBehaviour
 
     private Animator transitionAnim;
     private int thisLevelIndex;
+    private string TAG = "[PlayAgainTransitions] ";
 
     void Start()
     {
         transitionAnim = GetComponent<Animator>();
         thisLevelIndex =  PersistentManagerScript.Instance.LevelIdx;
-        Debug.Log("Play again: " + thisLevelIndex);
+        Debug.Log(TAG + "Play again: Level_" + thisLevelIndex);
     }
 
     public void LoadScene() {
@@ -22,7 +23,7 @@ public class PlayAgainTransitions : MonoBehaviour
     IEnumerator Transition() {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);
-         Debug.Log("[Again] Almost load the level: " + thisLevelIndex);
+        Debug.Log(TAG + "Is Loading Level_" + thisLevelIndex);
         SceneManager.LoadScene(thisLevelIndex);
     }
 }

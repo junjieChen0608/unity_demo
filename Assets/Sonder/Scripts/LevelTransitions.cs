@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransitions : MonoBehaviour
 {
-
-    private Animator transitionAnim;
+   private Animator transitionAnim;
     private int nextLevelIndex;
-
+    private string TAG = "[LevelTransitions] ";
 
     void Start()
     {
         transitionAnim = GetComponent<Animator>();
-        nextLevelIndex = PersistentManagerScript.Instance.LevelIdx + 1;
+        nextLevelIndex =  PersistentManagerScript.Instance.LevelIdx + 1;
+        Debug.Log(TAG + "Next Level: Level_" + nextLevelIndex);
     }
 
     public void LoadScene() {
@@ -22,9 +22,7 @@ public class LevelTransitions : MonoBehaviour
     IEnumerator Transition() {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);
-         Debug.Log("[LevelTransitions]Almost load the level: " + nextLevelIndex);
+        Debug.Log(TAG + "Is Loading Level_" + nextLevelIndex);
         SceneManager.LoadScene(nextLevelIndex);
     }
-
-
 }

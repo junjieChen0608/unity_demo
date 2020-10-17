@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PersistentManagerScript : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class PersistentManagerScript : MonoBehaviour
     public static PersistentManagerScript Instance 
     { 
         get { return _instance; }
-        // private set; 
     }
 
     public int LevelIdx;
@@ -17,25 +17,32 @@ public class PersistentManagerScript : MonoBehaviour
     public int[] LevelShots;
     public int[] bestLevelShots;
     public int[] levelStarCnt;
+    public bool starIsAlive;  // temp variable for present levels, will change to levelStarCnt later
+
+    private string TAG = "[Singleton] ";
 
     private void Awake()
     {
         
-        if (_instance == null)
+        if (_instance != null && _instance != this)
         {
+            Destroy(this.gameObject);
+            Debug.Log(TAG + "It is destroyed");
+            return;   
+        }
             _instance = this;
+            starIsAlive = false;
             LevelShots = new int[10];
             bestLevelShots = new int[10];
+            for (int i = 0; i < 10; i++)
+            {
+                bestLevelShots[i] = 1000;
+            }
             levelStarCnt = new int[10];
             maxUnlockedIdx = 1;
-            LevelIdx = 1;
-            Debug.Log("This is initialized");
-            DontDestroyOnLoad(gameObject);
-        }
-        else 
-        {
-            Destroy(gameObject);
-            Debug.Log("It is destroyed");
-        }
+            Debug.Log(TAG + "This is initialized");
+
+            // Keep the singleton 
+            DontDestroyOnLoad(this.gameObject);
     }
 }
