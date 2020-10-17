@@ -21,6 +21,7 @@ public class LevelSeletion : MonoBehaviour
             StartCoroutine(Transition(currentSceneIndex));
         }
     }
+    
     IEnumerator Transition(int currentSceneIndex) {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);

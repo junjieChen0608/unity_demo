@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
 
     private int sceneIndexTemp;
+    private int countOfShot;
     private int currLevelIdx;
     private float elapsedTime;
     private string TAG = "[Manager] ";
     private Scene scene;
-    
+
     void Start()
     {
         scene = SceneManager.GetActiveScene();
         sceneIndexTemp = scene.buildIndex;
-
-        UpdateLevelIndex();
-
+        countOfShot = 0;
         elapsedTime = 0.0f;
         PersistentManagerScript.Instance.starIsAlive = false;
-        currLevelIdx = PersistentManagerScript.Instance.LevelIdx;
-           
+        UpdateLevelIndex(); // Highest priority
+        currLevelIdx = PersistentManagerScript.Instance.LevelIdx;  
+        PersistentManagerScript.Instance.LevelShots[currLevelIdx] = 0; 
     }
 
     void Update()
@@ -35,19 +36,46 @@ public class Manager : MonoBehaviour
     {
         Debug.Log(TAG + scene.name + " is completed");
 
+        if (countOfShot > 0)
+        {
+            // record total shots of this level to analytics
+            AnalyticsResult totalShots = Analytics.CustomEvent(
+                "TotalShots",
+                new Dictionary<string, object> {
+                    {scene.name, countOfShot}
+                }
+            );
+
+            // record total time used in this level to analytics
+            AnalyticsResult totalTime = Analytics.CustomEvent(
+                "TotalTime",
+                new Dictionary<string, object> {
+                    {scene.name, elapsedTime}
+                }
+            );
+
+            // record completed level for funnel analyzer
+            AnalyticsResult levelComplete = Analytics.CustomEvent(
+                "LevelCompleted",
+                new Dictionary<string, object> {
+                    {"level", scene.name}
+                }
+            );
+        }
+
         if (PersistentManagerScript.Instance.starIsAlive)
         {
             // CountLevelTotalShots();
             UpdateBestShots();
             Debug.Log(TAG + "Total shots for this play: " + PersistentManagerScript.Instance.LevelShots[currLevelIdx]);
-            PersistentManagerScript.Instance.LevelShots[currLevelIdx] = 0; 
             UpdateMaxUnlocked();
         }
     }
 
     // Update global level index
     // If current is a level, update it; else, keep the previous index
-    void UpdateLevelIndex(){
+    void UpdateLevelIndex()
+    {
         if (sceneIndexTemp >=1 && sceneIndexTemp <= 5)
         {
             PersistentManagerScript.Instance.LevelIdx = sceneIndexTemp;
@@ -72,7 +100,8 @@ public class Manager : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            ++ PersistentManagerScript.Instance.LevelShots[currLevelIdx];
+            ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
+            ++countOfShot;
         }
     }
 
