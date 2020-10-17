@@ -14,7 +14,6 @@ public class ShowSecondStar : MonoBehaviour
 
         if (PersistentManagerScript.Instance.LevelShots[currLevelIdx] < 10)
         {
-            // yield return new WaitForSeconds(1);
             m_animator.SetBool("getSecondStar", true);
         }    
     }

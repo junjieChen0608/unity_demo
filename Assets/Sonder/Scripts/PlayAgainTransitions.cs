@@ -20,6 +20,7 @@ public class PlayAgainTransitions : MonoBehaviour
     public void LoadScene() {
         StartCoroutine(Transition());
     }
+    
     IEnumerator Transition() {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);

@@ -21,8 +21,9 @@ public class Manager : MonoBehaviour
         countOfShot = 0;
         elapsedTime = 0.0f;
         PersistentManagerScript.Instance.starIsAlive = false;
-        currLevelIdx = PersistentManagerScript.Instance.LevelIdx;
-        UpdateLevelIndex();
+        UpdateLevelIndex(); // Highest priority
+        currLevelIdx = PersistentManagerScript.Instance.LevelIdx;  
+        PersistentManagerScript.Instance.LevelShots[currLevelIdx] = 0; 
     }
 
     void Update()
@@ -67,7 +68,6 @@ public class Manager : MonoBehaviour
             // CountLevelTotalShots();
             UpdateBestShots();
             Debug.Log(TAG + "Total shots for this play: " + PersistentManagerScript.Instance.LevelShots[currLevelIdx]);
-            PersistentManagerScript.Instance.LevelShots[currLevelIdx] = 0; 
             UpdateMaxUnlocked();
         }
     }
