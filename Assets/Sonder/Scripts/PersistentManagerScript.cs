@@ -40,11 +40,9 @@ public class PersistentManagerScript : MonoBehaviour
             }
             levelStarCnt = new int[10];
             maxUnlockedIdx = 1;
-
             Debug.Log(TAG + "This is initialized");
 
             // Keep the singleton 
             DontDestroyOnLoad(this.gameObject);
-
     }
 }
