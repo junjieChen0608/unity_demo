@@ -10,9 +10,9 @@ public class Shot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonUp(0))
         {
-        	Shoot();
+            Shoot();
         }
     }
 

@@ -98,7 +98,7 @@ public class Manager : MonoBehaviour
 
     void CountLevelShots()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonUp(0))
         {
             ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
             ++countOfShot;
