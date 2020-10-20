@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
     private int currLevelIdx;
     private float elapsedTime;
     private string TAG = "[Manager] ";
+    private float[] mousePosition;
     private Scene scene;
 
     void Start()
@@ -20,6 +21,7 @@ public class Manager : MonoBehaviour
         sceneIndexTemp = scene.buildIndex;
         countOfShot = 0;
         elapsedTime = 0.0f;
+        mousePosition = new float[2];
         PersistentManagerScript.Instance.starIsAlive = false;
         UpdateLevelIndex(); // Highest priority
         currLevelIdx = PersistentManagerScript.Instance.LevelIdx;  
@@ -29,6 +31,7 @@ public class Manager : MonoBehaviour
     void Update()
     {
         CountLevelShots();
+        UpdateMousePosition();
         elapsedTime += Time.deltaTime;
     }
 
@@ -36,7 +39,7 @@ public class Manager : MonoBehaviour
     {
         Debug.Log(TAG + scene.name + " is completed");
 
-        if (countOfShot > 0)
+        if (countOfShot > 0 && scene.name != "Win")
         {
             // record total shots of this level to analytics
             AnalyticsResult totalShots = Analytics.CustomEvent(
@@ -59,6 +62,21 @@ public class Manager : MonoBehaviour
                 "LevelCompleted",
                 new Dictionary<string, object> {
                     {"level", scene.name}
+                }
+            );
+
+            // record final mouse click location to create a heat map
+            AnalyticsResult mouseTrackerX = Analytics.CustomEvent(
+                "MouseLocationX",
+                new Dictionary<string, object> {
+                    {scene.name, mousePosition[0] }
+                }
+            );
+
+            AnalyticsResult mouseTrackerY = Analytics.CustomEvent(
+                "MouseLocationY",
+                new Dictionary<string, object> {
+                    {scene.name, mousePosition[1] }
                 }
             );
         }
@@ -102,6 +120,15 @@ public class Manager : MonoBehaviour
         {
             ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
             ++countOfShot;
+        }
+    }
+
+    void UpdateMousePosition()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            mousePosition[0] = Input.mousePosition.x;
+            mousePosition[1] = Input.mousePosition.y;
         }
     }
 
