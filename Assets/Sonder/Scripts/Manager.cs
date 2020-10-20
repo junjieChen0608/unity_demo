@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
+using Vector3 = System.Numerics.Vector3;
 
 public class Manager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Manager : MonoBehaviour
     private int currLevelIdx;
     private float elapsedTime;
     private string TAG = "[Manager] ";
-    private float[] mousePosition;
+    private Vector3 mousePos;
     private Scene scene;
 
     void Start()
@@ -21,7 +22,7 @@ public class Manager : MonoBehaviour
         sceneIndexTemp = scene.buildIndex;
         countOfShot = 0;
         elapsedTime = 0.0f;
-        mousePosition = new float[2];
+        mousePos = new Vector3(0, 0, 0);
         PersistentManagerScript.Instance.starIsAlive = false;
         UpdateLevelIndex(); // Highest priority
         currLevelIdx = PersistentManagerScript.Instance.LevelIdx;  
@@ -66,17 +67,10 @@ public class Manager : MonoBehaviour
             );
 
             // record final mouse click location to create a heat map
-            AnalyticsResult mouseTrackerX = Analytics.CustomEvent(
-                "MouseLocationX",
+            AnalyticsResult mouseTracker = Analytics.CustomEvent(
+                "MouseLocation",
                 new Dictionary<string, object> {
-                    {scene.name, mousePosition[0] }
-                }
-            );
-
-            AnalyticsResult mouseTrackerY = Analytics.CustomEvent(
-                "MouseLocationY",
-                new Dictionary<string, object> {
-                    {scene.name, mousePosition[1] }
+                    {scene.name, mousePos }
                 }
             );
         }
@@ -127,8 +121,7 @@ public class Manager : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            mousePosition[0] = Input.mousePosition.x;
-            mousePosition[1] = Input.mousePosition.y;
+            mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         }
     }
 
