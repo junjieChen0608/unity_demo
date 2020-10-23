@@ -13,6 +13,7 @@ public class LightCollision : MonoBehaviour
 		Destroy(gameObject, 5);
 	}
 
+
 	// called when hit surfaces
     void OnCollisionEnter2D(Collision2D collision)
  	{
@@ -24,21 +25,25 @@ public class LightCollision : MonoBehaviour
 		}
  	}
 
- 	// called when hit star
+ 	// called when hit star & moon
  	void OnTriggerEnter2D(Collider2D collider)
  	{
+		// when hit star
  		Star star = collider.GetComponent<Star>();
  		if (star != null)
  		{
  			star.Live();
 			Destroy(gameObject);
  		}
-        MoonShoot moon = collider.GetComponent<MoonShoot>();
 
-        if (moon != null)
+		// when hit moon
+		MoonMove moonMove = collider.GetComponent<MoonMove>();
+        if (moonMove != null)
         {
-            moon.shoot();
+            moonMove.Tremble();
             Destroy(gameObject);
-        }
+        }      
  	}
+
+	 
 }
