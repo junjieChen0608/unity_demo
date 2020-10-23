@@ -9,7 +9,7 @@ public class MoonShoot : MonoBehaviour
     private bool m_shoot = false;
     private bool m_isStill = false;
     private string sceneName;
-    public Transform firePoint;
+    public Transform Moon3;
     public GameObject LightPrefab;
 
     public float LightForce;
@@ -23,13 +23,7 @@ public class MoonShoot : MonoBehaviour
         if (sceneName == "Level_4")
         {
             m_animator.SetTrigger("Still");
-            m_shoot = true;
         }
-        else
-        {
-            Debug.Log("Never enter move mode");
-        }
-
     }
 
     public void Still()
@@ -47,8 +41,16 @@ public class MoonShoot : MonoBehaviour
 
     public void shoot()
     {
-        GameObject Light = Instantiate(LightPrefab, firePoint.position, firePoint.rotation);
+        // moon shake then shoot
+        if (!m_shoot)
+        {
+            m_animator.SetTrigger("Shoot");
+            m_shoot = true;
+        }
+        GameObject Light = Instantiate(LightPrefab, Moon3.position, Moon3.rotation);
         Rigidbody2D rb = Light.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * LightForce, ForceMode2D.Impulse);
+        rb.AddForce(transform.right * LightForce, ForceMode2D.Impulse);
+        // after shoot, moon becomes still again.
+        m_animator.SetTrigger("Still");
     }
 }
