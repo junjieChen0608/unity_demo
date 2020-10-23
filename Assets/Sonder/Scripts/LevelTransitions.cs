@@ -17,7 +17,11 @@ public class LevelTransitions : MonoBehaviour
     }
 
     public void LoadScene() {
-        StartCoroutine(Transition());
+        if (nextLevelIndex <= PersistentManagerScript.Instance.totalLevels)
+        {
+            StartCoroutine(Transition());
+        }
+       
     }
     
     IEnumerator Transition() {

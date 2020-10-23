@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
+using Vector3 = System.Numerics.Vector3;
 
 public class Manager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Manager : MonoBehaviour
     private int currLevelIdx;
     private float elapsedTime;
     private string TAG = "[Manager] ";
+    private Vector3 mousePos;
     private Scene scene;
 
     void Start()
@@ -20,6 +22,7 @@ public class Manager : MonoBehaviour
         sceneIndexTemp = scene.buildIndex;
         countOfShot = 0;
         elapsedTime = 0.0f;
+        mousePos = new Vector3(0, 0, 0);
         PersistentManagerScript.Instance.starIsAlive = false;
         UpdateLevelIndex(); // Highest priority
         currLevelIdx = PersistentManagerScript.Instance.LevelIdx;  
@@ -29,6 +32,7 @@ public class Manager : MonoBehaviour
     void Update()
     {
         CountLevelShots();
+        UpdateMousePosition();
         elapsedTime += Time.deltaTime;
     }
 
@@ -36,7 +40,7 @@ public class Manager : MonoBehaviour
     {
         Debug.Log(TAG + scene.name + " is completed");
 
-        if (countOfShot > 0)
+        if (countOfShot > 0 && scene.name != "Win")
         {
             // record total shots of this level to analytics
             AnalyticsResult totalShots = Analytics.CustomEvent(
@@ -61,6 +65,14 @@ public class Manager : MonoBehaviour
                     {"level", scene.name}
                 }
             );
+
+            // record final mouse click location to create a heat map
+            AnalyticsResult mouseTracker = Analytics.CustomEvent(
+                "MouseLocation",
+                new Dictionary<string, object> {
+                    {scene.name, mousePos }
+                }
+            );
         }
 
         if (PersistentManagerScript.Instance.starIsAlive)
@@ -76,7 +88,7 @@ public class Manager : MonoBehaviour
     // If current is a level, update it; else, keep the previous index
     void UpdateLevelIndex()
     {
-        if (sceneIndexTemp >=1 && sceneIndexTemp <= 5)
+        if (sceneIndexTemp >=1 && sceneIndexTemp <= 3)
         {
             PersistentManagerScript.Instance.LevelIdx = sceneIndexTemp;
             
@@ -102,6 +114,14 @@ public class Manager : MonoBehaviour
         {
             ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
             ++countOfShot;
+        }
+    }
+
+    void UpdateMousePosition()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         }
     }
 

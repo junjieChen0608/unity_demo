@@ -18,6 +18,7 @@ public class PersistentManagerScript : MonoBehaviour
     public int[] bestLevelShots;
     public int[] levelStarCnt;
     public bool starIsAlive;  // temp variable for present levels, will change to levelStarCnt later
+    public int totalLevels;
 
     private string TAG = "[Singleton] ";
 
@@ -34,6 +35,8 @@ public class PersistentManagerScript : MonoBehaviour
             starIsAlive = false;
             LevelShots = new int[10];
             bestLevelShots = new int[10];
+            totalLevels = 3;
+            
             for (int i = 0; i < 10; i++)
             {
                 bestLevelShots[i] = 1000;

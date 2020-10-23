@@ -13,7 +13,7 @@ public class LevelButtonManager : MonoBehaviour
         {
             buttons[i].interactable = false;
         }
-        for (int i = 0; i < PersistentManagerScript.Instance.maxUnlockedIdx; i++)
+        for (int i = 0; i < Mathf.Min(PersistentManagerScript.Instance.maxUnlockedIdx, buttons.Length); i++)
         {
             buttons[i].interactable = true;
         }
