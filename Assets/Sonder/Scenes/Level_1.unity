@@ -498,7 +498,8 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 73.301315
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 18630448260303943, guid: d83b39d61865e4f71a93991305d4168f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d83b39d61865e4f71a93991305d4168f, type: 3}
 --- !u!1 &548076178
 GameObject:
@@ -564,6 +565,8 @@ MonoBehaviour:
   LevelShots: 
   bestLevelShots: 
   levelStarCnt: 
+  starIsAlive: 0
+  totalLevels: 0
 --- !u!4 &929199430
 Transform:
   m_ObjectHideFlags: 0
@@ -2169,8 +2172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee05c10c6c51d41c5b8236bd98f57e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Win
-  maxUnlocked: 0
 --- !u!60 &6211404466486852142
 PolygonCollider2D:
   m_ObjectHideFlags: 0

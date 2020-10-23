@@ -1011,6 +1011,9 @@ MonoBehaviour:
   maxUnlockedIdx: 0
   LevelShots: 
   bestLevelShots: 
+  levelStarCnt: 
+  starIsAlive: 0
+  totalLevels: 0
 --- !u!4 &1390900109
 Transform:
   m_ObjectHideFlags: 0
@@ -1523,5 +1526,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 18630448260303943, guid: d83b39d61865e4f71a93991305d4168f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d83b39d61865e4f71a93991305d4168f, type: 3}
