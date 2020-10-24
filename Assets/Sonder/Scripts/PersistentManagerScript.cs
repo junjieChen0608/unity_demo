@@ -35,7 +35,7 @@ public class PersistentManagerScript : MonoBehaviour
             starIsAlive = false;
             LevelShots = new int[10];
             bestLevelShots = new int[10];
-            totalLevels = 3;
+            totalLevels = 4;
             
             for (int i = 0; i < 10; i++)
             {

@@ -20,8 +20,15 @@ public class MoonMove : MonoBehaviour
     public void Tremble()
     {
         m_animator.SetTrigger("Collide");
+        
+        StartCoroutine(WaitCoroutine());  // add a delay for falling     
+    }
+
+    IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(1);
         GameObject Moonlight = Instantiate(MoonlightPrefab, Moon.position, Moon.rotation);
         Rigidbody2D rb = Moonlight.GetComponent<Rigidbody2D>();
-        rb.gravityScale = GravityScale;
+        rb.gravityScale = GravityScale;  
     }
 }
