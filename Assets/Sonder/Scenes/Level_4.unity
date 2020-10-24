@@ -991,7 +991,6 @@ GameObject:
   - component: {fileID: 1944802223}
   - component: {fileID: 1944802226}
   - component: {fileID: 1944802225}
-  - component: {fileID: 1944802224}
   - component: {fileID: 1944802227}
   m_Layer: 0
   m_Name: Moon
@@ -1083,18 +1082,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1944802224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944802220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 792e28e7d26f747d3ba3f0189d768c63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &1944802225
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1363,7 +1350,7 @@ Rigidbody2D:
   m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
