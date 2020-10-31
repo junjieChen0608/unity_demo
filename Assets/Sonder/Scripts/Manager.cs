@@ -88,7 +88,7 @@ public class Manager : MonoBehaviour
     // If current is a level, update it; else, keep the previous index
     void UpdateLevelIndex()
     {
-        if (sceneIndexTemp >=1 && sceneIndexTemp <= 4)
+        if (sceneIndexTemp >=1 && sceneIndexTemp <= 9)
         {
             PersistentManagerScript.Instance.LevelIdx = sceneIndexTemp;
             

@@ -21,12 +21,27 @@ EditorBuildSettings:
     path: Assets/Sonder/Scenes/Level_4.unity
     guid: 09c914afc2da54671a33c381315ebe79
   - enabled: 1
-    path: Assets/Sonder/Scenes/About.unity
-    guid: 727595397a17b4c779e6518d4b4a4aa0
+    path: Assets/Sonder/Scenes/Level_5.unity
+    guid: 5a7363c8666fa4637bed94443a026e5b
+  - enabled: 1
+    path: Assets/Sonder/Scenes/Level_6.unity
+    guid: 719f12f0441d546fba2c781d95762cf6
+  - enabled: 1
+    path: Assets/Sonder/Scenes/Level_7.unity
+    guid: 5e0ec155a3a0f4a7ea0b6ed5e58cce2b
+  - enabled: 1
+    path: Assets/Sonder/Scenes/Level_8.unity
+    guid: c13437c50d6bf4736bf9a4b02fa46afd
+  - enabled: 1
+    path: Assets/Sonder/Scenes/Level_9.unity
+    guid: 44774a961c0df44308af8099d6a63662
   - enabled: 1
     path: Assets/Sonder/Scenes/Level_Selection.unity
     guid: 5cecb8a4f86e34fc180aae6762744049
   - enabled: 1
     path: Assets/Sonder/Scenes/Win.unity
     guid: 823d3a493b69b448f8fe5b66d5813b1b
+  - enabled: 1
+    path: Assets/Sonder/Scenes/About.unity
+    guid: 727595397a17b4c779e6518d4b4a4aa0
   m_configObjects: {}
