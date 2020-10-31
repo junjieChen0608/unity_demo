@@ -110,7 +110,7 @@ public class Manager : MonoBehaviour
 
     void CountLevelShots()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && (!PersistentManagerScript.Instance.starIsAlive))
         {
             ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
             ++countOfShot;

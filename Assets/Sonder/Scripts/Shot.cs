@@ -10,7 +10,7 @@ public class Shot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(0) && (!PersistentManagerScript.Instance.starIsAlive))
+        if (Input.GetMouseButtonUp(0)&& (!PersistentManagerScript.Instance.starIsAlive))
         {
             Shoot();
         }
