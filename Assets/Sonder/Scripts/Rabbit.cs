@@ -27,7 +27,7 @@ public class Rabbit : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && (!PersistentManagerScript.Instance.starIsAlive)) {
             m_animator.SetBool("Biu", true);
         } else {
                  m_delayToIdle -= Time.deltaTime;
