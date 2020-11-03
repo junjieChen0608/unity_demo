@@ -15,15 +15,11 @@ public class Shot : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0)&& (!PersistentManagerScript.Instance.starIsAlive))
         {
-            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            // if (EventSystem.current.IsPointerOverGameObject()) { return; }
-            // if (!PersistentManagerScript.Instance.blockedByUI)
             Debug.Log(TAG + "Pointer is over UI Object is: " + IsPointerOverUIObject());
             if (!IsPointerOverUIObject())
             {
                 Shoot();
-            }
-            
+            }    
         }
     }
 

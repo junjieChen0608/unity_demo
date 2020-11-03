@@ -19,8 +19,7 @@ public class MoonMove : MonoBehaviour
     // call when it detects enter Moon trigger
     public void Tremble()
     {
-        m_animator.SetTrigger("Collide");
-        
+        m_animator.SetTrigger("Collide"); 
         StartCoroutine(WaitCoroutine());  // add a delay for falling     
     }
 
@@ -29,6 +28,7 @@ public class MoonMove : MonoBehaviour
         yield return new WaitForSeconds(1);
         GameObject Moonlight = Instantiate(MoonlightPrefab, Moon.position, Moon.rotation);
         Rigidbody2D rb = Moonlight.GetComponent<Rigidbody2D>();
-        rb.gravityScale = GravityScale;  
+        rb.gravityScale = GravityScale; 
+        Moonlight.GetComponentInChildren<Animator>().SetTrigger("Collide"); 
     }
 }
