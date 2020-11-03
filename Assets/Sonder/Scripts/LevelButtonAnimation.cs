@@ -9,7 +9,7 @@ public class LevelButtonAnimation : MonoBehaviour
     public void onPointerEnter()
     {
         Debug.Log(TAG + "I'm here.");
-        transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+        transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void onPointerExit()
@@ -19,6 +19,6 @@ public class LevelButtonAnimation : MonoBehaviour
 
     public void onPointerDown()
     {
-        transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
     }
 }
