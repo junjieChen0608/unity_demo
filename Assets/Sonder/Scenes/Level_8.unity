@@ -360,12 +360,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 466681384}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 466681386}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d71c49eeed8f042709c87b9ac422e73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &466681386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 18630449005376006, guid: d83b39d61865e4f71a93991305d4168f,
+    type: 3}
+  m_PrefabInstance: {fileID: 466681384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539191830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee05c10c6c51d41c5b8236bd98f57e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelRref: {fileID: 466681386}
 --- !u!60 &2016961272
 PolygonCollider2D:
   m_ObjectHideFlags: 0

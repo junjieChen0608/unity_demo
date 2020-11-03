@@ -6,6 +6,8 @@ using System;
 
 public class Star : MonoBehaviour
 {  
+    public GameObject PanelRref;
+    
     private Animator m_animator;
     private Animator transitionAnim;
     private Rigidbody2D m_body2d;
@@ -17,7 +19,7 @@ public class Star : MonoBehaviour
     {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
-        transitionAnim = GetComponent<Animator>();
+        transitionAnim = PanelRref.GetComponent<Animator>();
     }
 
     public void Live() 
@@ -35,7 +37,9 @@ public class Star : MonoBehaviour
     }
 
     IEnumerator Transition(string sceneName) {
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(sceneName);
     }
 }
