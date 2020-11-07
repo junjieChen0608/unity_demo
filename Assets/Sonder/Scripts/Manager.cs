@@ -88,7 +88,7 @@ public class Manager : MonoBehaviour
     // If current is a level, update it; else, keep the previous index
     void UpdateLevelIndex()
     {
-        if (sceneIndexTemp >=1 && sceneIndexTemp <= 3)
+        if (sceneIndexTemp >=1 && sceneIndexTemp <= 9)
         {
             PersistentManagerScript.Instance.LevelIdx = sceneIndexTemp;
             
@@ -110,7 +110,7 @@ public class Manager : MonoBehaviour
 
     void CountLevelShots()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonUp(0) && (!PersistentManagerScript.Instance.starIsAlive))
         {
             ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
             ++countOfShot;

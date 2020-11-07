@@ -26,8 +26,7 @@ public class Rabbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && (!PersistentManagerScript.Instance.starIsAlive)) {
             m_animator.SetBool("Biu", true);
         } else {
                  m_delayToIdle -= Time.deltaTime;
@@ -37,7 +36,7 @@ public class Rabbit : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
-     void FixedUpdate()
+    void FixedUpdate()
     {
         //Vector2 lookDir = mousePos - transform.position;
         Vector2 lookDir = mousePos - m_body2d.position;

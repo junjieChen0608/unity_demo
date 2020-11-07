@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class LevelButtonManager : MonoBehaviour
 {
     public Button[] buttons;
+    private string TAG = "[LevelButtonManager] ";
     
     void Start()
     {
+        Debug.Log(TAG + "Number of buttons: " + buttons.Length);
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].interactable = false;
@@ -17,11 +19,5 @@ public class LevelButtonManager : MonoBehaviour
         {
             buttons[i].interactable = true;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

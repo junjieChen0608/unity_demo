@@ -1011,6 +1011,11 @@ MonoBehaviour:
   maxUnlockedIdx: 0
   LevelShots: 
   bestLevelShots: 
+  levelStarCnt: 
+  starIsAlive: 0
+  totalLevels: 0
+  blockedByUI: 0
+  muted: 0
 --- !u!4 &1390900109
 Transform:
   m_ObjectHideFlags: 0

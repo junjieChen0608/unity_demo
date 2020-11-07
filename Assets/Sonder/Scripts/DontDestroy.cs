@@ -12,4 +12,18 @@ public class DontDestroy : MonoBehaviour
             Destroy(this.gameObject);
         DontDestroyOnLoad(this.gameObject);
     }
+    // static Music instance = null;
+
+    // private void Awake()
+    // {
+    //     if (instance != null)
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    //     else
+    //     {
+    //         instance = this;
+    //         GameObject.DontDestroyOnLoad(gameObject);
+    //     }
+    // }
 }
