@@ -814,6 +814,7 @@ MonoBehaviour:
   maxUnlockedIdx: 0
   LevelShots: 
   bestLevelShots: 
+  levelStars: 
   levelStarCnt: 
   starIsAlive: 0
   totalLevels: 0
