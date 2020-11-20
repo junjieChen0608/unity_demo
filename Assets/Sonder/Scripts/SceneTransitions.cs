@@ -7,6 +7,7 @@ public class SceneTransitions : MonoBehaviour
 {
 
     private Animator transitionAnim;
+    private string TAG = "[SceneTransitions ]";
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class SceneTransitions : MonoBehaviour
 
     }
     IEnumerator Transition(string sceneName) {
+        Debug.Log(TAG + "Scene Transition");
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(sceneName);

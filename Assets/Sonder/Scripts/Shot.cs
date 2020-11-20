@@ -13,7 +13,7 @@ public class Shot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(0)&& (!PersistentManagerScript.Instance.starIsAlive))
+        if (Input.GetMouseButtonUp(0) && (!PersistentManagerScript.Instance.starIsAlive))
         {
             Debug.Log(TAG + "Pointer is over UI Object is: " + IsPointerOverUIObject());
             if (!IsPointerOverUIObject())

@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
     private Vector3 mousePos;
     private Scene scene;
 
-    void Start()
+    void Awake()
     {
         scene = SceneManager.GetActiveScene();
         sceneIndexTemp = scene.buildIndex;
@@ -26,6 +26,7 @@ public class Manager : MonoBehaviour
         PersistentManagerScript.Instance.starIsAlive = false;
         UpdateLevelIndex(); // Highest priority
         currLevelIdx = PersistentManagerScript.Instance.LevelIdx;  
+        PersistentManagerScript.Instance.levelStarCnt[currLevelIdx] = PersistentManagerScript.Instance.levelStars[currLevelIdx];
         PersistentManagerScript.Instance.LevelShots[currLevelIdx] = 0; 
     }
 
@@ -76,6 +77,7 @@ public class Manager : MonoBehaviour
         }
 
         if (PersistentManagerScript.Instance.starIsAlive)
+        // if ((PersistentManagerScript.Instance.levelStarCnt[currLevelIdx]) == 0)
         {
             // CountLevelTotalShots();
             UpdateBestShots();
@@ -111,6 +113,7 @@ public class Manager : MonoBehaviour
     void CountLevelShots()
     {
         if (Input.GetMouseButtonUp(0) && (!PersistentManagerScript.Instance.starIsAlive))
+        // if (Input.GetMouseButtonUp(0) && (PersistentManagerScript.Instance.levelStarCnt[currLevelIdx]) == 0)
         {
             ++PersistentManagerScript.Instance.LevelShots[currLevelIdx];
             ++countOfShot;

@@ -16,6 +16,7 @@ public class PersistentManagerScript : MonoBehaviour
     public int maxUnlockedIdx;
     public int[] LevelShots;
     public int[] bestLevelShots;
+    public int[] levelStars;
     public int[] levelStarCnt;
     public bool starIsAlive;  // temp variable for present levels, will change to levelStarCnt later
     public int totalLevels;
@@ -37,6 +38,8 @@ public class PersistentManagerScript : MonoBehaviour
             starIsAlive = false;
             LevelShots = new int[10];
             bestLevelShots = new int[10];
+            levelStars = new int[10]{0, 1, 1, 1, 1, 2, 2, 2, 2, 3};
+            levelStarCnt = new int[10];
             totalLevels = 9;
             blockedByUI = false;
             muted = false;

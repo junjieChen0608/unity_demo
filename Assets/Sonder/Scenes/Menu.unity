@@ -223,7 +223,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2889453af82c94b668ab0b5974ff0cc6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 99a2439408b6c463691931ae5dc50c77, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.686
   m_Pitch: 1
@@ -1011,6 +1011,7 @@ MonoBehaviour:
   maxUnlockedIdx: 0
   LevelShots: 
   bestLevelShots: 
+  levelStars: 
   levelStarCnt: 
   starIsAlive: 0
   totalLevels: 0
