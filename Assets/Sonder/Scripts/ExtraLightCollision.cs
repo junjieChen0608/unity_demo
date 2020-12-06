@@ -4,26 +4,13 @@ using UnityEngine;
 
 public class ExtraLightCollision : MonoBehaviour
 {
- //private int bounceCount = 15;
+	private int currLevel;
 	private string TAG = "[ExtraLightCollision] ";
 
-	// void Start()
-	// {
-	// 	// destroy bullet after 5s
-	// 	Destroy(gameObject, 5);
-	// }
-
-
-	// // called when hit surfaces
-    // void OnCollisionEnter2D(Collision2D collision)
- 	// {
- 	// 	--bounceCount;
-	// 	// bullet bounces up to 15 times
-	// 	if (bounceCount == 0 && gameObject != null)
-	// 	{
-	// 		Destroy(gameObject);
-	// 	}
- 	// }
+	private void Start()
+	{
+		currLevel = PersistentManagerScript.Instance.LevelIdx;
+	}
 
  	// called when hit star & moon 
  	void OnTriggerEnter2D(Collider2D collider)
@@ -32,7 +19,10 @@ public class ExtraLightCollision : MonoBehaviour
  		Star star = collider.GetComponent<Star>();
  		if (star != null)
  		{
-            Destroy(gameObject);
+			if (PersistentManagerScript.Instance.levelStarCnt[currLevel] == 1)
+			{
+            	Destroy(gameObject);
+			}
  			star.Live();		
  		}   
  	}

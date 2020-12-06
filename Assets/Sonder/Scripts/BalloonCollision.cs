@@ -25,7 +25,7 @@ public class BalloonCollision : MonoBehaviour
 
     IEnumerator Transition() {
         m_animator.SetTrigger("Exploded");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
 }

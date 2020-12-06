@@ -44,6 +44,30 @@ public class LightCollision : MonoBehaviour
 			Destroy(gameObject);
  		}
 
+		// when hit star in Level 9
+ 		FinalStar finalstar = collider.GetComponent<FinalStar>();
+ 		if (finalstar != null)
+ 		{
+ 			finalstar.Live();
+			Destroy(gameObject);
+ 		}
+		
+		// when hit star2 in Level 9
+ 		FinalStar2 finalstar2 = collider.GetComponent<FinalStar2>();
+ 		if (finalstar2 != null)
+ 		{
+ 			finalstar2.Live();
+			Destroy(gameObject);
+ 		}
+
+		// when hit star3 in Level 9
+ 		FinalStar3 finalstar3 = collider.GetComponent<FinalStar3>();
+ 		if (finalstar3 != null)
+ 		{
+ 			finalstar3.Live();
+			Destroy(gameObject);
+ 		}
+
 		// when hit moon
 		MoonMove moonMove = collider.GetComponent<MoonMove>();
         if (moonMove != null)
